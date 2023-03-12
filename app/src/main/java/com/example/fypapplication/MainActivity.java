@@ -19,5 +19,9 @@ public class MainActivity extends AppCompatActivity {
         //fixing
         //sth typed 1419
         //1524
+        //wd
+        //dw
+        //dwf
+
     }
 }
