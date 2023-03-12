@@ -14,5 +14,9 @@ public class MainActivity extends AppCompatActivity {
         int l;
         int jadjaw;
         int k;
+
+        int fej; //fix success
+        //fixing
+
     }
 }
