@@ -11,17 +11,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int l;
-        int jadjaw;
-        int k;
-
-        int fej; //fix success
-        //fixing
-        //sth typed 1419
-        //1524
-        //wd
-        //dw
-        //dwf
-        int r=3;
     }
 }
