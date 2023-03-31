@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FYPApplication</string>
+    <string name="welcome_statement">HELLO USER!</string>
+    <string name="enter_username_here">Enter Username Here</string>
+    <string name="enter_password_here">Enter Password Here</string>
+    <string name="btn_login">Login</string>
 </resources>
