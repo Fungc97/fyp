@@ -4,4 +4,12 @@
     <string name="enter_username_here">Enter Username Here</string>
     <string name="enter_password_here">Enter Password Here</string>
     <string name="btn_login">Login</string>
+    <string name="borrow_return_func">Borrow/Return</string>
+    <string name="renew_func">Renew</string>
+    <string name="browse_catalog_func">Browse Catalog</string>
+    <string name="my_account_func">My Account</string>
+    <string name="process_return_func">Process Return</string>
+    <string name="manage_res_func">Manage Resources</string>
+    <string name="check_reader_func">Check Readers</string>
+    <string name="BorrowReturnEtHint">Enter Barcode on book (or Scan it)</string>
 </resources>

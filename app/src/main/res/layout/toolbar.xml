@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/light_blue"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:id="@+id/toolbar">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@id/toolbar_back"
             android:text="TITLE"
+            android:id="@+id/toolbar_title"
             android:textColor="@color/white"
             android:textSize="24sp" />
 
