@@ -30,14 +30,14 @@
             android:id="@+id/ivErase"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:src="@drawable/baseline_close_24" />
 
         <ImageView
             android:id="@+id/ivScan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:src="@mipmap/ic_barcode" />
     </LinearLayout>
 

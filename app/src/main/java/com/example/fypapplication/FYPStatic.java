@@ -12,11 +12,15 @@ import android.widget.TextView;
 
 import com.example.fypapplication.webService.Methods;
 
+import java.util.Map;
+
 public class FYPStatic {
     public static Context context;
     public static Methods methods;
     public static String sCurrentUserName;
     public static char cCurrentUserAccountType;
+
+    public static Map<String,String> currentBookDetailRecord;
 
     public static void showInfoMsgDialogOK(Context context, String Msg,DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

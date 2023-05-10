@@ -1,5 +1,7 @@
 package com.example.fypapplication.webService;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
@@ -17,7 +19,27 @@ public interface Methods {
     Call<BookCopiesStatus>bookcopiesstatus(@Path("barcode")String barcode);
 
     @PUT("borrow/ac/{ac}/barcode/{barcode}")
-    Call<BorrowTrans>borrow(@Path("ac")String ac,@Path("barcode")String barcode);
+    Call<BorrowRetTrans>borrow(@Path("ac")String ac, @Path("barcode")String barcode);
+
+    @PUT("ret/ac/{ac}/barcode/{barcode}")
+    Call<BorrowRetTrans>returnBook(@Path("ac")String ac, @Path("barcode")String barcode);
+
+
+    @GET("borrowedbooks/ac/{ac}")
+    Call<List<BorrowedBook>>borrowedbooks(@Path("ac")String ac);
+
+    @PUT("renew/barcodeID/{barcodeID}")
+    Call<RenewTrans>renew(@Path("barcodeID")String barcodeID);
+
+
+    @GET("allbook")
+    Call<List<Book>>getAllBook();
+
+    @GET("getAllBookCopies/isbn/{isbn}")
+    Call<List<BranchCopies>>getAllBookCopies(@Path("isbn")String isbn);
+
+    @GET("getAcInfo/{ac}")
+    Call<AccountInfo>getAcInfo(@Path("ac")String ac);
 
 
 }

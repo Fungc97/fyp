@@ -1,6 +1,5 @@
 package com.example.fypapplication.activity;
 
-import static com.example.fypapplication.FYPStatic.cCurrentUserAccountType;
 import static com.example.fypapplication.FYPStatic.context;
 import static com.example.fypapplication.FYPStatic.initCurrentContext;
 import static com.example.fypapplication.FYPStatic.initToolBar;
@@ -15,7 +14,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,9 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.fypapplication.R;
-import com.example.fypapplication.webService.Account;
 import com.example.fypapplication.webService.BookCopiesStatus;
-import com.example.fypapplication.webService.BorrowTrans;
+import com.example.fypapplication.webService.BorrowRetTrans;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
@@ -148,9 +145,9 @@ public class ActBorrowReturn extends AppCompatActivity {
                                             etBarcode.setText("");
                                         }
                                     });
-                        break;
-                        case BOOKCOPIES_STATUS_DELETED:
-                            showErrorMsgDialogOK(context,"The book is invalid. (Status=Deleted)");
+                            break;
+                        default:
+                            showErrorMsgDialogOK(context,"The book is invalid for borrow/return.");
                             break;
 
                     }
@@ -171,19 +168,19 @@ public class ActBorrowReturn extends AppCompatActivity {
     private void borrowBook(String sBarcode) {
         String username = sCurrentUserName;
 
-        Call<BorrowTrans> call = methods.borrow(username, sBarcode);
-        call.enqueue(new Callback<BorrowTrans>() {//execute the call and get the response;network op. need to be run in background thread
+        Call<BorrowRetTrans> call = methods.borrow(username, sBarcode);
+        call.enqueue(new Callback<BorrowRetTrans>() {//execute the call and get the response;network op. need to be run in background thread
             @Override
-            public void onResponse(Call<BorrowTrans> call, Response<BorrowTrans> response) {
-                BorrowTrans borrowTrans = response.body();
+            public void onResponse(Call<BorrowRetTrans> call, Response<BorrowRetTrans> response) {
+                BorrowRetTrans borrowRetTrans = response.body();
                 if (response.isSuccessful()) {
 
-                    if (!borrowTrans.getTranState() .equals("SUCCESS") ) {
-                        showErrorMsgDialogOK(context, "Some error occurs in borrowing transaction.\n" +borrowTrans.getTranState());
+                    if (!borrowRetTrans.getTranState() .equals("SUCCESS") ) {
+                        showErrorMsgDialogOK(context, "Some error occurs in borrowing transaction.\n" + borrowRetTrans.getTranState());
                     }
                     else {
-                        showInfoMsgDialogOK(context, "Borrow Success. \nBorrowID: " + borrowTrans.getNewBorrowID()
-                                +"\nDue Date: "+borrowTrans.getDueDate(), (dialogInterface, i) -> dialogInterface.dismiss());
+                        showInfoMsgDialogOK(context, "Borrow Success. \nBorrowID for reference: " + borrowRetTrans.getBorrowId()
+                                +"\nDue Date: "+ borrowRetTrans.getDueDate(), (dialogInterface, i) -> dialogInterface.dismiss());
                     }
                 } else {
                     showErrorMsgDialogOK(context, "borrow: response not successful\n");
@@ -191,12 +188,38 @@ public class ActBorrowReturn extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BorrowTrans> call, Throwable t) {
+            public void onFailure(Call<BorrowRetTrans> call, Throwable t) {
                 showErrorMsgDialogOK(context, "borrow: failed getting response\n" + t.getMessage());
             }
         });
     }
 
     private void returnBook(String sBarcode) {
+        String username = sCurrentUserName;
+
+        Call<BorrowRetTrans> call = methods.returnBook(username, sBarcode);
+        call.enqueue(new Callback<BorrowRetTrans>() {//execute the call and get the response;network op. need to be run in background thread
+            @Override
+            public void onResponse(Call<BorrowRetTrans> call, Response<BorrowRetTrans> response) {
+                BorrowRetTrans borrowRetTrans = response.body();
+                if (response.isSuccessful()) {
+
+                    if (!borrowRetTrans.getTranState() .equals("SUCCESS") ) {
+                        showErrorMsgDialogOK(context, "Some error occurs in borrowing transaction.\n" + borrowRetTrans.getTranState());
+                    }
+                    else {
+                        showInfoMsgDialogOK(context, "Return Book Success. \nID for reference: " + borrowRetTrans.getBorrowId()
+                                +"\nDue Date: "+ borrowRetTrans.getDueDate(), (dialogInterface, i) -> dialogInterface.dismiss());
+                    }
+                } else {
+                    showErrorMsgDialogOK(context, "return: response not successful\n");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BorrowRetTrans> call, Throwable t) {
+                showErrorMsgDialogOK(context, "return: failed getting response\n" + t.getMessage());
+            }
+        });
     }
 }

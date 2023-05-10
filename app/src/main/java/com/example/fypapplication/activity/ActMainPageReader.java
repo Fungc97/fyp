@@ -50,8 +50,32 @@ public class ActMainPageReader extends AppCompatActivity {
         });
 
         btnRenew = findViewById(R.id.btnRenew);
+        btnRenew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActRenewal.class);
+                startActivity(i);
+            }
+        });
+
         btnBrowseCat = findViewById(R.id.btnBrowseCat);
+
+        btnBrowseCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActViewCatalog.class);
+                startActivity(i);
+            }
+        });
+
         btnMyAc = findViewById(R.id.btnMyAc);
+        btnMyAc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActMyAccount.class);
+                startActivity(i);
+            }
+        });
 
     }
 

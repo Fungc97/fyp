@@ -2,12 +2,12 @@ package com.example.fypapplication.webService;
 
 import com.google.gson.annotations.SerializedName;
 
-public class BorrowTrans {
+public class BorrowRetTrans {
     @SerializedName("tranState")
     private String tranState;
 
-    @SerializedName("newBorrowID")
-    private String newBorrowID;
+    @SerializedName("borrowID")
+    private String borrowID;
 
     @SerializedName("dueDate")
     private String dueDate;
@@ -20,7 +20,5 @@ public class BorrowTrans {
         return tranState;
     }
 
-    public String getNewBorrowID() {
-        return newBorrowID;
-    }
+    public String getBorrowId() {return borrowID;}
 }
