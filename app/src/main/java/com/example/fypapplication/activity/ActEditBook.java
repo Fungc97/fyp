@@ -261,7 +261,9 @@ public class ActEditBook extends AppCompatActivity {
 
     }
 
+
     protected int locIdxFromlmRecord2(String branch) {
+
         int sizeLibs=lmRecords2.size();
         for(int i=0;i<sizeLibs;i++){
             if(lmRecords2.get(i).get("location").equals(branch)){
@@ -329,7 +331,9 @@ public class ActEditBook extends AppCompatActivity {
         spBranch.setAdapter(spinnerAdapter);
     }
 
+
     protected ArrayList<String> retrieveLocationListFrom(ArrayList<Map<String, String>> lmRecords2) {
+
         ArrayList<String> lLocation=new ArrayList<>();
         for(Map<String, String>record:lmRecords2){
             lLocation.add(record.get("location"));

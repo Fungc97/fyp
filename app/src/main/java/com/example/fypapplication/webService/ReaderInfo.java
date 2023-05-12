@@ -64,7 +64,11 @@ public class ReaderInfo {
     }
 
     public String getDob() {
+<<<<<<< HEAD
         return dob.substring(0,10);
+=======
+        return dob;
+>>>>>>> 2269bb28baa7f225ba397e7fbf5cc0a2d7434f54
     }
 
     public String getEmailAddress() {

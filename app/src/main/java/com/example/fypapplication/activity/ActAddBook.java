@@ -183,7 +183,9 @@ public class ActAddBook extends AppCompatActivity {
         barLaucher.launch(options);
 
     }
+
     protected static ArrayList<String> retrieveTitleListFrom(ArrayList<Map<String, String>> lmRecords) {
+
 
         ArrayList<String> lTitles=new ArrayList<>();
         for(Map<String, String>record:lmRecords){
@@ -203,12 +205,16 @@ public class ActAddBook extends AppCompatActivity {
         spTitle.setAdapter(spinnerAdapter);
     }
 
+
     protected static boolean isValidYear(String year) {
+
         int y=Integer.parseInt(year);
         return y>1900 && y<2023;
     }
 
+
     protected static String capitaliseFirstLetter(String s) {
+
 
         char[] charArr = s.toCharArray();
         boolean spaceExisted = true;
@@ -262,7 +268,9 @@ public class ActAddBook extends AppCompatActivity {
         spLocation.setAdapter(spinnerAdapter);
     }
 
+
     protected static ArrayList<String> retrieveLocationListFrom(ArrayList<Map<String, String>> lmRecords2) {
+
         ArrayList<String> lLocation=new ArrayList<>();
         for(Map<String, String>record:lmRecords2){
             lLocation.add(record.get("location"));

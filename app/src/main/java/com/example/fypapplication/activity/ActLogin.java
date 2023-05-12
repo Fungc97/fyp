@@ -59,10 +59,12 @@ public class ActLogin extends AppCompatActivity {
 
     }
 
+
     @Override
     public void onBackPressed() {
 
     }
+
     //    private void checkAppPermission() {
 //
 //        int cameraPermission = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
@@ -100,6 +102,7 @@ public class ActLogin extends AppCompatActivity {
 //                }
 //        }
 //    }
+
 
     @Override
     protected void onResume() {
