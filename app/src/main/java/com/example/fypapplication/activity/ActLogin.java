@@ -38,9 +38,9 @@ public class ActLogin extends AppCompatActivity {
         setContentView(R.layout.act_login);
         initCurrentContext(this);
         /*******/
-        checkAppPermission();
-
-        initRetrofitClient();
+//        checkAppPermission();
+//
+//        initRetrofitClient();
         etUserName = findViewById(R.id.etUsername);
         etPw = findViewById(R.id.etPw);
         btnLogin = findViewById(R.id.btnLogin);
@@ -59,43 +59,47 @@ public class ActLogin extends AppCompatActivity {
 
     }
 
-    private void checkAppPermission() {
-
-        int cameraPermission = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
-
-        if(cameraPermission== PackageManager.PERMISSION_DENIED){
-            showInfoMsgDialogOK(context, "The app requires camera permission for barcode scanning. Providing such permission can enhance your experience using the app.", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    ActivityCompat.requestPermissions((Activity) context, new String[]{ CAMERA}, 1);
-                }
-            });
-
-        }
-    }
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onBackPressed() {
 
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-
-            case 1:
-                if (grantResults.length > 0) {
-                    boolean camera_granted = (grantResults[0] == PackageManager.PERMISSION_GRANTED);
-
-                    if ( !camera_granted ) {
-                        showInfoMsgDialogOK(context, "By denying permission for camera, " +
-                                "Scanning function will not be available.\n" +
-                                "However, you can still enjoy other features.", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        });
-                    }
-                }
-        }
     }
+    //    private void checkAppPermission() {
+//
+//        int cameraPermission = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
+//
+//        if(cameraPermission== PackageManager.PERMISSION_DENIED){
+//            showInfoMsgDialogOK(context, "The app requires camera permission for barcode scanning. Providing such permission can enhance your experience using the app.", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    ActivityCompat.requestPermissions((Activity) context, new String[]{ CAMERA}, 1);
+//                }
+//            });
+//
+//        }
+//    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        switch (requestCode) {
+//
+//            case 1:
+//                if (grantResults.length > 0) {
+//                    boolean camera_granted = (grantResults[0] == PackageManager.PERMISSION_GRANTED);
+//
+//                    if ( !camera_granted ) {
+//                        showInfoMsgDialogOK(context, "By denying permission for camera, " +
+//                                "Scanning function will not be available.\n" +
+//                                "However, you can still enjoy other features.", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                dialogInterface.dismiss();
+//                            }
+//                        });
+//                    }
+//                }
+//        }
+//    }
 
     @Override
     protected void onResume() {
@@ -104,9 +108,9 @@ public class ActLogin extends AppCompatActivity {
         etPw.setText("");
     }
 
-    private static void initRetrofitClient() {
-        methods = RetrofitClient.getRetrofitInstance().create(Methods.class); //retrofit create the implementation of methods
-    }
+//    private static void initRetrofitClient() {
+//        methods = RetrofitClient.getRetrofitInstance().create(Methods.class); //retrofit create the implementation of methods
+//    }
 
     private void login() {
         String username = etUserName.getText().toString();

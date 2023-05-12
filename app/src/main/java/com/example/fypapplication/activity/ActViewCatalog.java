@@ -74,8 +74,8 @@ public class ActViewCatalog extends AppCompatActivity {
     private void updateListView(String keyword) {
         newlmRecords=new ArrayList<>();
         for(Map<String,String>record:lmRecords){
-            String bookTitle=record.get("title");
-            if(bookTitle.contains(keyword)) {
+            String bookTitle=record.get("title").toUpperCase();
+            if(bookTitle.contains(keyword.toUpperCase())) {
                 newlmRecords.add(record);
             }
         }

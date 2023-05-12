@@ -85,7 +85,7 @@ public class ActMyAccount extends AppCompatActivity {
         });
     }
 
-    private String charAccountTypeToString(char cCurrentUserAccountType) {
+    protected static String charAccountTypeToString(char cCurrentUserAccountType) {
         if (cCurrentUserAccountType=='R'){
             return "Reader";
         }

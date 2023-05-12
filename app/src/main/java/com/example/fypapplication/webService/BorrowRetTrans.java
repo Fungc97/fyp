@@ -3,6 +3,12 @@ package com.example.fypapplication.webService;
 import com.google.gson.annotations.SerializedName;
 
 public class BorrowRetTrans {
+    public BorrowRetTrans(String tranState, String borrowID, String dueDate) {
+        this.tranState = tranState;
+        this.borrowID = borrowID;
+        this.dueDate = dueDate;
+    }
+
     @SerializedName("tranState")
     private String tranState;
 

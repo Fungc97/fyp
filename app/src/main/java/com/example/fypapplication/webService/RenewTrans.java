@@ -3,6 +3,13 @@ package com.example.fypapplication.webService;
 import com.google.gson.annotations.SerializedName;
 
 public class RenewTrans {
+    public RenewTrans(String tranState, String newDueDate, String title, String barcodeID) {
+        this.tranState = tranState;
+        this.newDueDate = newDueDate;
+        this.title = title;
+        this.barcodeID = barcodeID;
+    }
+
     @SerializedName("tranState")
     private String tranState;
 

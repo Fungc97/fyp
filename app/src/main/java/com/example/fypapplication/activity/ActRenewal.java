@@ -170,7 +170,7 @@ public class ActRenewal extends AppCompatActivity {
 
                         lmRecords.add(mRecord);
                     }
-                    SimpleAdapter adapter = new SimpleAdapter(context, lmRecords, R.layout.view_borrowedbook_cell, new String[]{"barcodeID","title","dueDate","renewalTimes"}, new int[]{R.id.tvBarcodeID,R.id.tv1,R.id.tvDueDate,R.id.tvRenewalTimes});
+                    SimpleAdapter adapter = new SimpleAdapter(context, lmRecords, R.layout.view_borrowedbook_cell_with_renewal, new String[]{"barcodeID","title","dueDate","renewalTimes"}, new int[]{R.id.tvBarcodeID,R.id.tv1,R.id.tvDueDate,R.id.tvRenewalTimes});
                     lvBorrowedBooks.setAdapter(adapter);
                     System.out.println(lvBorrowedBooks.getChildCount());
                     System.out.println(lvBorrowedBooks.getChildAt(0));

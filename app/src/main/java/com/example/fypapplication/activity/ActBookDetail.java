@@ -106,7 +106,7 @@ public class ActBookDetail extends AppCompatActivity {
         lvBranchCopies.setAdapter(adapter);
     }
 
-    private String statusNumStringToStatusString(String status) {
+    protected static String statusNumStringToStatusString(String status) {
         switch (status){
             case  BOOKCOPIES_STATUS_ONSHELF:
                 return "On-shelf";

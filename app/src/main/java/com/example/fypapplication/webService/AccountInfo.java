@@ -3,6 +3,19 @@ package com.example.fypapplication.webService;
 import com.google.gson.annotations.SerializedName;
 
 public class AccountInfo {
+    public AccountInfo(String typeId, String firstName, String lastName, String gender, String hkid, String dob, String emailAddress, String address, String contactNo, String maxQuota, String ac) {
+        this.typeId = typeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.hkid = hkid;
+        this.dob = dob;
+        this.emailAddress = emailAddress;
+        this.address = address;
+        this.contactNo = contactNo;
+        this.maxQuota = maxQuota;
+        this.ac = ac;
+    }
 
     @SerializedName("TypeId")
     private String typeId;
