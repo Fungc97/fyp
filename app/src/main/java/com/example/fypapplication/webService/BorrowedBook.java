@@ -9,6 +9,9 @@ public class BorrowedBook {
     @SerializedName("title")
     private String title;
 
+    @SerializedName("BorrowDate")
+    private String borrowDate;
+
     @SerializedName("DueDate")
     private String dueDate;
 
@@ -16,6 +19,9 @@ public class BorrowedBook {
     private String renewalTimes;
 
 
+    public String getBorrowDate() {
+        return borrowDate.substring(0,10);
+    }
 
     public String getDueDate() {
         return dueDate.substring(0,10);

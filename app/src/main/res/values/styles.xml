@@ -28,4 +28,19 @@
         <item name="android:text">Sample Heading</item>
         <item name="android:textSize">@dimen/font_size_heading</item>
     </style>
+    <!-- Spinner -->
+    <style name="spItem" parent="android:Widget.TextView.SpinnerItem">
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/bg_spinner</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="spDropDownItem" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+        <item name="android:textSize">20dp</item>
+        <item name="android:background">@drawable/bg_spinner</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+
 </resources>

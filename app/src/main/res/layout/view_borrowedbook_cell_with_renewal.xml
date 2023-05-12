@@ -6,38 +6,43 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:background="@color/black">
 
         <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="144dp"
+            android:id="@+id/tvBarcodeID"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tvBorrowDate"
+            android:id="@+id/tv1"
 
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/tvDueDate"
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             />
 
         <TextView
             android:id="@+id/tvRenewalTimes"
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+           />
 
-
+        <CheckBox
+            android:id="@+id/cbRenewal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+             />
 
     </LinearLayout>
 

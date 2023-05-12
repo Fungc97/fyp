@@ -1,9 +1,16 @@
 package com.example.fypapplication.webService;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
@@ -35,11 +42,41 @@ public interface Methods {
     @GET("allbook")
     Call<List<Book>>getAllBook();
 
-    @GET("getAllBookCopies/isbn/{isbn}")
+    @GET("allBookCopies/isbn/{isbn}")
     Call<List<BranchCopies>>getAllBookCopies(@Path("isbn")String isbn);
 
-    @GET("getAcInfo/{ac}")
+    @GET("acInfo/{ac}")
     Call<AccountInfo>getAcInfo(@Path("ac")String ac);
+
+    @GET("readerInfo/id/{id}")
+    Call<ReaderInfo>getReaderInfo(@Path("id")String readerId);
+
+    @PUT("processRetReq/{barcode}")
+    Call<ProcessRetTrans>processRet(@Path("barcode")String barcode);
+
+    @POST("book")
+    Call<AddBookTrans> createBook(@Body Book book);
+
+    @GET("alllib")
+    Call<List<Library>>getAllLib();
+
+    @FormUrlEncoded
+    @POST("bookcopies")
+    Call<AddBookCopiesTrans> createBookCopies(
+            @Field("isbn")String isbn,
+            @Field("libid")String libid,
+            @Field("barcode")String barcode
+    );
+    @GET("bookCopiesInfo/barcode/{barcode}")
+    Call<GetBookCopiesInfoTrans>getBookCopiesInfo(@Path("barcode")String barcode);
+
+
+    @FormUrlEncoded
+    @PUT("book")
+    Call<UpdateBookTrans> updateBook(@FieldMap Map<String,String> fields);
+
+    @DELETE("bookcopies/barcode/{barcode}")
+    Call<DeleteBookCopiesTrans>delBookCopies(@Path("barcode")String barcode);
 
 
 }

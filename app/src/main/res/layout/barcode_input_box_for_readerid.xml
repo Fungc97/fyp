@@ -23,9 +23,9 @@
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:inputType="number"
-            android:maxLength="10"
-            android:hint="@string/BorrowReturnEtHint"
-             />
+            android:maxLength="4"
+            android:hint="Please enter/scan readerID"
+            />
 
 
         <ImageView

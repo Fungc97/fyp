@@ -21,6 +21,19 @@ public class Book {
     @SerializedName("EditStaffID")
     private String editStaffID;
 
+    @SerializedName("EditStaffAc")
+    private String editStaffAc;
+
+    public Book(String title, String author, String publisher, String isbn, String publishingYear,String editStaffAc) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.isbn = isbn;
+        this.publishingYear = publishingYear;
+        this.editStaffAc=editStaffAc;
+
+    }
+
     public String getTitle() {
         return title;
     }

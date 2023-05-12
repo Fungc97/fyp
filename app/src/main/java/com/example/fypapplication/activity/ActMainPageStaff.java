@@ -9,6 +9,7 @@ import static com.example.fypapplication.FYPStatic.showQuestionDialogYesNo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,10 +46,47 @@ public class ActMainPageStaff extends AppCompatActivity {
             }
         });
         btnProcessReturn = findViewById(R.id.btnProcessReturn);
+        btnProcessReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActProcessReturn.class);
+                startActivity(i);
+            }
+        });
+
         btnMangeRes = findViewById(R.id.btnManageRes);
+        btnMangeRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActManageRes.class);
+                startActivity(i);
+            }
+        });
+
         btnCheckReader = findViewById(R.id.btnCheckReader);
+        btnCheckReader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActCheckReader.class);
+                startActivity(i);
+            }
+        });
         btnBrowseCat = findViewById(R.id.btnBrowseCat);
+        btnBrowseCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActViewCatalog.class);
+                startActivity(i);
+            }
+        });
         btnMyAc = findViewById(R.id.btnMyAc);
+        btnMyAc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActMyAccount.class);
+                startActivity(i);
+            }
+        });
 
 
     }
