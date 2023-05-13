@@ -7,81 +7,85 @@
     android:background="@mipmap/img_hkcentrallib">
 
     <include layout="@layout/toolbar"/>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        >
     <LinearLayout
         android:id="@+id/llHeaders"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:orientation="horizontal"
         android:background="@color/black"
-        android:layout_below="@+id/toolbar">
+        >
 
         <TextView
             android:id="@+id/tvBarcodeID"
-            android:layout_width="wrap_content"
+            android:layout_width="144px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/yellow"
+            android:text="BarcodeID"
 
-            android:text="BarcodeID"/>
+            android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/tv1"
 
-            android:layout_width="wrap_content"
+            android:layout_width="144px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/yellow"
+            android:text="Title"
 
-            android:text="Title"/>
+            android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/tvDueDate"
-            android:layout_width="wrap_content"
+            android:layout_width="144px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/yellow"
-
             android:text="DueDate"
-            />
+
+            android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/tvRenewalTimes"
-            android:layout_width="wrap_content"
+            android:layout_width="144px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/yellow"
-
             android:text="RenewalTimes"
-            />
+
+            android:textColor="@color/yellow" />
 
         <TextView
             android:id="@+id/tvRenewalQ"
-            android:layout_width="wrap_content"
+            android:layout_width="144px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="@color/yellow"
+            android:text="Renew?"
 
-            android:text="Renewal?"
-            />
+            android:textColor="@color/yellow" />
 
     </LinearLayout>
 
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvBorrowedBooks"
+            android:layout_below="@+id/llHeaders">
+        </ListView>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvBorrowedBooks"
-        android:layout_below="@+id/llHeaders">
 
-    </ListView>
+        <Button
+            android:id="@+id/btnRenewal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lvBorrowedBooks"
+            android:text="Renewal" />
 
-    <Button
-        android:id="@+id/btnRenewal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Renewal"
-        android:layout_below="@id/lvBorrowedBooks" />
+    </LinearLayout>
 
 
 </RelativeLayout>

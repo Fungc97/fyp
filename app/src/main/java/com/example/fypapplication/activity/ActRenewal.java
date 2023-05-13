@@ -71,6 +71,12 @@ public class ActRenewal extends AppCompatActivity {
                         list.add(i);
                     }
                 }
+                if(list.isEmpty()){
+                    showErrorMsgDialogOK(context,"Please select the book you want to renew.");
+                    return;
+                }
+
+
                 boolean fiveRenewalExist=false;
                 for(int i:list){
                     if( lmRecords.get(i).get("renewalTimes").equals("5")){
@@ -89,6 +95,12 @@ public class ActRenewal extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
     }
 
     private void doRenewal(ArrayList<Integer> list) {

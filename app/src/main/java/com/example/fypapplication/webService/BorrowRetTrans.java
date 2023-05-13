@@ -12,7 +12,7 @@ public class BorrowRetTrans {
     @SerializedName("tranState")
     private String tranState;
 
-    @SerializedName("borrowID")
+    @SerializedName("borrowId")
     private String borrowID;
 
     @SerializedName("dueDate")

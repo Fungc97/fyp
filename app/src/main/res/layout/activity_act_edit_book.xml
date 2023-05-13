@@ -21,7 +21,8 @@
         android:layout_below="@+id/barcodeInputBox"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/black"
+        android:background="@color/light_blue"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -35,6 +36,9 @@
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="Title:" />
 
             <EditText
@@ -44,6 +48,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter Title Here"
+                android:textColorHint="@color/light_grey"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -58,6 +63,9 @@
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="ISBN:" />
 
             <EditText
@@ -67,6 +75,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter ISBN Here"
+                android:textColorHint="@color/light_grey"
                 android:inputType="number"
                 android:enabled="false"
                 android:maxLength="13" />
@@ -83,6 +92,9 @@
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="Author:" />
 
             <EditText
@@ -92,6 +104,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter Author Here"
+                android:textColorHint="@color/light_grey"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -106,6 +119,9 @@
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="Publisher:" />
 
             <EditText
@@ -115,6 +131,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter Publisher Here"
+                android:textColorHint="@color/light_grey"
                 android:inputType="textPersonName" />
 
         </LinearLayout>
@@ -129,6 +146,9 @@
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="PublishingYear:" />
 
             <EditText
@@ -138,6 +158,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Enter Publishing Year Here"
+                android:textColorHint="@color/light_grey"
                 android:inputType="number"
                 android:maxLength="4" />
 
@@ -154,13 +175,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Branch:" />
+                android:text="Branch:"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spBranch"
                 android:layout_width="200px"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="6" />
         </LinearLayout>
 
         <LinearLayout

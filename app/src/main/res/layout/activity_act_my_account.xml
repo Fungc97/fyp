@@ -12,11 +12,11 @@
         android:id="@+id/llInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/black"
+
+        android:background="@color/light_blue"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_margin="20dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -28,13 +28,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Type:" />
 
             <TextView
                 android:id="@+id/tvType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
@@ -48,13 +51,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="First Name:" />
 
             <TextView
                 android:id="@+id/tvFirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -69,13 +75,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Last Name:" />
 
             <TextView
                 android:id="@+id/tvLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -90,13 +99,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Gender:" />
 
             <TextView
                 android:id="@+id/tvGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -111,13 +123,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="HKID:" />
 
             <TextView
                 android:id="@+id/tvHKID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -132,13 +147,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="DOB:" />
 
             <TextView
                 android:id="@+id/tvDOB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="DOB"
                 android:textAlignment="viewEnd" />
@@ -153,13 +171,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Address:" />
 
             <TextView
                 android:id="@+id/tvAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -174,13 +195,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Email:" />
 
             <TextView
                 android:id="@+id/tvEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -195,13 +219,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="ContactNo:" />
 
             <TextView
                 android:id="@+id/tvContactNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />
@@ -216,13 +243,16 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
+                android:textStyle="bold"
                 android:text="Quota:" />
 
             <TextView
                 android:id="@+id/tvQuota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:text="TextView"
                 android:textAlignment="viewEnd" />

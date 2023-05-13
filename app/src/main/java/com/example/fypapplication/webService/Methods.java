@@ -19,45 +19,45 @@ public interface Methods {
     // base - >http://192.168.102.123:8090/api/
     // become -> http://192.168.102.123:8090/orders
 
-    @GET("login/ac/{ac}/pw/{pw}") //u can do "http://192.168.102.123:8090/api/orders" overwrite whole base url
+    @GET("login/{ac}/{pw}") //u can do "http://192.168.102.123:8090/api/orders" overwrite whole base url
     Call<Account> login(@Path("ac") String ac, @Path("pw") String pw);
 
-    @GET("bookcopiesstatus/barcode/{barcode}")
-    Call<BookCopiesStatus>bookcopiesstatus(@Path("barcode")String barcode);
+    //@GET("bookcopiestatus/{barcode}")
+    //Call<GetBookCopiesInfoTrans>bookcopiesstatus(@Path("barcode")String barcode);
 
-    @PUT("borrow/ac/{ac}/barcode/{barcode}")
+    @PUT("borrow/{ac}/{barcode}")
     Call<BorrowRetTrans>borrow(@Path("ac")String ac, @Path("barcode")String barcode);
 
-    @PUT("ret/ac/{ac}/barcode/{barcode}")
+    @PUT("ret/{ac}/{barcode}")
     Call<BorrowRetTrans>returnBook(@Path("ac")String ac, @Path("barcode")String barcode);
 
 
-    @GET("borrowedbooks/ac/{ac}")
+    @GET("borrowedbooks/{ac}")
     Call<List<BorrowedBook>>borrowedbooks(@Path("ac")String ac);
 
-    @PUT("renew/barcodeID/{barcodeID}")
+    @PUT("renew/{barcodeID}")
     Call<RenewTrans>renew(@Path("barcodeID")String barcodeID);
 
 
-    @GET("allbook")
+    @GET("books")
     Call<List<Book>>getAllBook();
 
-    @GET("allBookCopies/isbn/{isbn}")
+    @GET("bookcopies/isbn/{isbn}")
     Call<List<BranchCopies>>getAllBookCopies(@Path("isbn")String isbn);
 
-    @GET("acInfo/{ac}")
+    @GET("acs/{ac}")
     Call<AccountInfo>getAcInfo(@Path("ac")String ac);
 
-    @GET("readerInfo/id/{id}")
+    @GET("readers/{id}")
     Call<ReaderInfo>getReaderInfo(@Path("id")String readerId);
 
-    @PUT("processRetReq/{barcode}")
+    @PUT("processret/{barcode}")
     Call<ProcessRetTrans>processRet(@Path("barcode")String barcode);
 
     @POST("book")
     Call<AddBookTrans> createBook(@Body Book book);
 
-    @GET("alllib")
+    @GET("libs")
     Call<List<Library>>getAllLib();
 
     @FormUrlEncoded
@@ -67,7 +67,7 @@ public interface Methods {
             @Field("libid")String libid,
             @Field("barcode")String barcode
     );
-    @GET("bookCopiesInfo/barcode/{barcode}")
+    @GET("bookcopies/{barcode}")
     Call<GetBookCopiesInfoTrans>getBookCopiesInfo(@Path("barcode")String barcode);
 
 
@@ -75,7 +75,7 @@ public interface Methods {
     @PUT("book")
     Call<UpdateBookTrans> updateBook(@FieldMap Map<String,String> fields);
 
-    @DELETE("bookcopies/barcode/{barcode}")
+    @DELETE("bookcopies/{barcode}")
     Call<DeleteBookCopiesTrans>delBookCopies(@Path("barcode")String barcode);
 
 

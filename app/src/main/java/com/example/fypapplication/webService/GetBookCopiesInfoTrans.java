@@ -22,6 +22,13 @@ public class GetBookCopiesInfoTrans {
     @SerializedName("Location")
     private String location;
 
+    @SerializedName("Status")
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
     public String getTranState() {
         return tranState;
     }

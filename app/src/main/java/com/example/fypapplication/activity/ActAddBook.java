@@ -142,6 +142,12 @@ public class ActAddBook extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void addCopies(String isbn, String libid, String barcode) {
         Call<AddBookCopiesTrans> call = methods.createBookCopies(isbn,libid,barcode);

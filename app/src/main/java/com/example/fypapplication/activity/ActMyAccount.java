@@ -51,6 +51,12 @@ public class ActMyAccount extends AppCompatActivity {
         getAccountInfo(sCurrentUserName);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void getAccountInfo(String sCurrentUserName) {
         Call<AccountInfo> call = methods.getAcInfo(sCurrentUserName);

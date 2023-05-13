@@ -22,8 +22,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.fypapplication.R;
-import com.example.fypapplication.webService.BookCopiesStatus;
+
 import com.example.fypapplication.webService.BorrowRetTrans;
+import com.example.fypapplication.webService.GetBookCopiesInfoTrans;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
@@ -92,6 +93,12 @@ public class ActBorrowReturn extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
     private void scanCode() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Volume Up to flash on");
@@ -105,52 +112,59 @@ public class ActBorrowReturn extends AppCompatActivity {
     private void getBookCopiesStatus() {
         String sBarcode = etBarcode.getText().toString();
 
-        Call<BookCopiesStatus> call = methods.bookcopiesstatus(sBarcode);
-        call.enqueue(new Callback<BookCopiesStatus>() {//execute the call and get the response;network op. need to be run in background thread
+        Call<GetBookCopiesInfoTrans> call = methods.getBookCopiesInfo(sBarcode);
+        call.enqueue(new Callback<GetBookCopiesInfoTrans>() {//execute the call and get the response;network op. need to be run in background thread
             @Override
-            public void onResponse(Call<BookCopiesStatus> call, Response<BookCopiesStatus> response) {
-                BookCopiesStatus bookCopiesStatus = response.body();
+            public void onResponse(Call<GetBookCopiesInfoTrans> call, Response<GetBookCopiesInfoTrans> response) {
+                GetBookCopiesInfoTrans getBookCopiesInfoTrans = response.body();
                 if (response.isSuccessful()) {
-                    switch (bookCopiesStatus.getStatus()) {
-                        case BOOKCOPIES_STATUS_ONSHELF:
-                            showQuestionDialogYesNo(context, "Confirmation", "Do u want to BORROW this book?\n" +
-                                            "Title: " + bookCopiesStatus.getTitle(),
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            borrowBook(sBarcode);
-                                        }
-                                    },
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                            etBarcode.setText("");
-                                        }
-                                    });
-                        break;
-                        case BOOKCOPIES_STATUS_BORROWOUT:
-                            showQuestionDialogYesNo(context, "Confirmation", "Do u want to RETURN this book?\n" +
-                                            "Title: " + bookCopiesStatus.getTitle(),
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            returnBook(sBarcode);
-                                        }
-                                    },
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                            etBarcode.setText("");
-                                        }
-                                    });
-                            break;
-                        default:
-                            showErrorMsgDialogOK(context,"The book is invalid for borrow/return.");
-                            break;
-
+                    if (!getBookCopiesInfoTrans.getTranState() .equals("SUCCESS") ) {
+                        showErrorMsgDialogOK(context, "Some error occurs in getBookCopiesStatus transaction.\n" + getBookCopiesInfoTrans.getTranState());
                     }
+                    else {
+                        switch (getBookCopiesInfoTrans.getStatus()) {
+
+                            case BOOKCOPIES_STATUS_ONSHELF:
+                                showQuestionDialogYesNo(context, "Confirmation", "Do u want to BORROW this book?\n" +
+                                                "Title: " + getBookCopiesInfoTrans.getTitle(),
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                borrowBook(sBarcode);
+                                            }
+                                        },
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                etBarcode.setText("");
+                                            }
+                                        });
+                                break;
+                            case BOOKCOPIES_STATUS_BORROWOUT:
+                                showQuestionDialogYesNo(context, "Confirmation", "Do u want to RETURN this book?\n" +
+                                                "Title: " + getBookCopiesInfoTrans.getTitle(),
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                returnBook(sBarcode);
+                                            }
+                                        },
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                etBarcode.setText("");
+                                            }
+                                        });
+                                break;
+                            default:
+                                showErrorMsgDialogOK(context,"The book is invalid for borrow/return.");
+                                break;
+
+                        }
+                    }
+
 
                 } else {
                     showErrorMsgDialogOK(context, "bookcopiesstatus: response not successful\n");
@@ -158,7 +172,7 @@ public class ActBorrowReturn extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BookCopiesStatus> call, Throwable t) {
+            public void onFailure(Call<GetBookCopiesInfoTrans> call, Throwable t) {
                 showErrorMsgDialogOK(context, "bookcopiesstatus: failed getting response\n " + t.getMessage());
             }
         });
@@ -205,7 +219,7 @@ public class ActBorrowReturn extends AppCompatActivity {
                 if (response.isSuccessful()) {
 
                     if (!borrowRetTrans.getTranState() .equals("SUCCESS") ) {
-                        showErrorMsgDialogOK(context, "Some error occurs in borrowing transaction.\n" + borrowRetTrans.getTranState());
+                        showErrorMsgDialogOK(context, "Some error occurs in return transaction.\n" + borrowRetTrans.getTranState());
                     }
                     else {
                         showInfoMsgDialogOK(context, "Return Book Success. \nID for reference: " + borrowRetTrans.getBorrowId()

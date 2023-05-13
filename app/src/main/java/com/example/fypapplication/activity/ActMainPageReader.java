@@ -79,5 +79,11 @@ public class ActMainPageReader extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
 }

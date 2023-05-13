@@ -61,6 +61,12 @@ public class ActBookDetail extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void getBookCopies(String isbn) {
         Call<List<BranchCopies>> call = methods.getAllBookCopies(isbn);

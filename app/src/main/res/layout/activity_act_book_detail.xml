@@ -13,11 +13,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:background="@color/black"
+        android:background="@color/light_grey"
         android:gravity="center"
         android:layout_centerInParent="true"
         android:layout_marginTop="100dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,6 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="5dp"
                 android:text="Title:" />
 
             <TextView
@@ -37,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:textColor="@color/black"
+                android:padding="5dp"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -50,6 +56,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="5dp"
                 android:text="Author:" />
 
             <TextView
@@ -58,6 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -71,6 +82,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:textStyle="bold"
                 android:text="Publisher:" />
 
             <TextView
@@ -79,6 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -92,6 +108,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:text="ISBN:" />
 
             <TextView
@@ -100,6 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
 
@@ -113,6 +134,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:textStyle="bold"
                 android:text="PublishingYear" />
 
             <TextView
@@ -121,6 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="TextView"
+                android:padding="5dp"
+                android:textColor="@color/black"
                 android:textAlignment="viewEnd" />
         </LinearLayout>
     </LinearLayout>
@@ -137,24 +163,24 @@
 
         <TextView
             android:id="@+id/tvhead1"
-            android:layout_width="144dp"
+            android:layout_width="360px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-
             android:text="Branch"
-            android:textColor="@color/yellow" />
+            android:textColor="@color/yellow"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvhaed2"
 
-            android:layout_width="144dp"
+            android:layout_width="360px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-
             android:text="Status"
-            android:textColor="@color/yellow" />
+            android:textColor="@color/yellow"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

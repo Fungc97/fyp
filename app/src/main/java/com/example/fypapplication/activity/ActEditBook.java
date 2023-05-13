@@ -132,6 +132,12 @@ public class ActEditBook extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
     private void delBook(String barcode) {
         Call<DeleteBookCopiesTrans> call = methods.delBookCopies(barcode);
         call.enqueue(new Callback<DeleteBookCopiesTrans>() {//execute the call and get the response;network op. need to be run in background thread

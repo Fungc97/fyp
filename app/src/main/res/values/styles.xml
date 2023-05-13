@@ -28,6 +28,11 @@
         <item name="android:text">Sample Heading</item>
         <item name="android:textSize">@dimen/font_size_heading</item>
     </style>
+
+
+
+
+
     <!-- Spinner -->
     <style name="spItem" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textSize">20dp</item>

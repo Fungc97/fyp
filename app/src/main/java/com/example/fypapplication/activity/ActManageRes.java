@@ -47,4 +47,10 @@ public class ActManageRes extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 }

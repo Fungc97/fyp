@@ -8,23 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/black">
+        android:background="@color/light_blue">
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="144dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/tvBorrowDate"
-
+            android:textColor="@color/white"
             android:layout_width="144dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <TextView
             android:id="@+id/tvDueDate"
+            android:textColor="@color/white"
             android:layout_width="144dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -33,6 +35,7 @@
         <TextView
             android:id="@+id/tvRenewalTimes"
             android:layout_width="144dp"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             />

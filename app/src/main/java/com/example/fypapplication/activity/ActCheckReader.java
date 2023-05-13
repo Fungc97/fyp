@@ -111,6 +111,12 @@ public class ActCheckReader extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void clearInfoView() {
         tvFirstName.setText("");

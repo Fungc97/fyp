@@ -70,6 +70,12 @@ public class ActViewCatalog extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void updateListView(String keyword) {
         newlmRecords=new ArrayList<>();

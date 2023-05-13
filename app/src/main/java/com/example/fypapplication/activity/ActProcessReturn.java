@@ -24,8 +24,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.fypapplication.R;
-import com.example.fypapplication.webService.BookCopiesStatus;
+
 import com.example.fypapplication.webService.BorrowRetTrans;
+import com.example.fypapplication.webService.GetBookCopiesInfoTrans;
 import com.example.fypapplication.webService.ProcessRetTrans;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
@@ -94,6 +95,12 @@ public class ActProcessReturn extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initCurrentContext(this);
+
+    }
 
     private void scanCode() {
         ScanOptions options = new ScanOptions();
@@ -108,11 +115,11 @@ public class ActProcessReturn extends AppCompatActivity {
     private void getBookCopiesStatus() {
         String sBarcode = etBarcode.getText().toString();
 
-        Call<BookCopiesStatus> call = methods.bookcopiesstatus(sBarcode);
-        call.enqueue(new Callback<BookCopiesStatus>() {//execute the call and get the response;network op. need to be run in background thread
+        Call<GetBookCopiesInfoTrans> call = methods.getBookCopiesInfo(sBarcode);
+        call.enqueue(new Callback<GetBookCopiesInfoTrans>() {//execute the call and get the response;network op. need to be run in background thread
             @Override
-            public void onResponse(Call<BookCopiesStatus> call, Response<BookCopiesStatus> response) {
-                BookCopiesStatus bookCopiesStatus = response.body();
+            public void onResponse(Call<GetBookCopiesInfoTrans> call, Response<GetBookCopiesInfoTrans> response) {
+                GetBookCopiesInfoTrans bookCopiesStatus = response.body();
                 if (response.isSuccessful()) {
                     switch (bookCopiesStatus.getStatus()) {
                         case BOOKCOPIES_STATUS_ONRETREQ:
@@ -145,7 +152,7 @@ public class ActProcessReturn extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BookCopiesStatus> call, Throwable t) {
+            public void onFailure(Call<GetBookCopiesInfoTrans> call, Throwable t) {
                 showErrorMsgDialogOK(context, "bookcopiesstatus: failed getting response\n " + t.getMessage());
             }
         });
