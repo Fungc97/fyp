@@ -129,9 +129,12 @@ public class ActAddBook extends AppCompatActivity {
                 else{//addcopies
                     String isbn=lmRecords.get(selectedIdxTitles-1).get("isbn");
                     String libid=lmRecords2.get(selectedIdxLocations-1).get("libid");
-                    System.out.println(isbn+" "+libid+" "+etBarcodeString);
-                    addCopies(isbn,libid,etBarcodeString);
-
+                    if(etBarcodeString.length()!=10){
+                        showErrorMsgDialogOK(context,"The barcode length need to be 10 digit!");
+                    }
+                    else{
+                        addCopies(isbn,libid,etBarcodeString);
+                    }
                 }
 
 

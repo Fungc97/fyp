@@ -123,7 +123,7 @@ public class ActRenewal extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     String res;
                     if(renewTrans.getTranState().equals("SUCCESS")){
-                        res= String.format("Success Renewal for Book %s (%s), newDueDate is : %s\n",renewTrans.getTitle(),renewTrans.getBarcodeID(),renewTrans.getNewDueDate());
+                        res= String.format("Success Renewal for Book \n%s (%s)\n, newDueDate is : %s\n\n",renewTrans.getTitle(),renewTrans.getBarcodeID(),renewTrans.getNewDueDate());
                     }
                     else{
                         res= String.format("FAIL Renewal for Book %s (%s), ErrorMsg: %s\n",renewTrans.getTitle(),renewTrans.getBarcodeID(),renewTrans.getNewDueDate(),renewTrans.getTranState());

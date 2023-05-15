@@ -7,10 +7,12 @@ import static com.example.fypapplication.FYPStatic.methods;
 import static com.example.fypapplication.FYPStatic.sCurrentUserName;
 import static com.example.fypapplication.FYPStatic.showErrorMsgDialogOK;
 import static com.example.fypapplication.FYPStatic.showInfoMsgDialogOK;
+import static com.example.fypapplication.FYPStatic.showQuestionDialogYesNo;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -84,6 +86,9 @@ public class ActEditBook extends AppCompatActivity {
                 if (editable.length() == 10) {
                     getBookCopiesInfo(etBarcode.getText().toString());
                 }
+                else{
+                    clearForm();
+                }
             }
         });
         ivErase = findViewById(R.id.ivErase);
@@ -123,13 +128,35 @@ public class ActEditBook extends AppCompatActivity {
             public void onClick(View view) {
                 String barcode=etBarcode.getText().toString();
                 if(!barcode.equals("")){
-                    delBook(barcode);
+                    showQuestionDialogYesNo(context, "Confirmation", "Are you sure you want to delete this book copy?", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            delBook(barcode);
+                        }
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {//nth
+                        }
+                    });
+
+
                 }
                 else{
                     showErrorMsgDialogOK(context,"Please fill in the barcode");
                 }
             }
         });
+    }
+
+    private void clearForm() {
+        etTitle.setText("");
+        etIsbn.setText("");
+        etAuthor.setText("");
+        etPublisher.setText("");
+        etPublishingYear.setText("");
+        spBranch.setSelection(0);
+        btnDelete.setEnabled(false);
+        btnUpdate.setEnabled(false);
     }
 
     @Override
@@ -227,6 +254,7 @@ public class ActEditBook extends AppCompatActivity {
                 GetBookCopiesInfoTrans getBookCopiesInfoTrans=response.body();
                 if (response.isSuccessful()) {
                     if (!getBookCopiesInfoTrans.getTranState() .equals("SUCCESS") ) {
+                        etBarcode.setText("");
                         showErrorMsgDialogOK(context, "Some error occurs in getBookCopiesInfo transaction.\n" + getBookCopiesInfoTrans.getTranState());
                     }
                     else{
@@ -263,6 +291,8 @@ public class ActEditBook extends AppCompatActivity {
         etPublisher.setText(publisher);
         etPublishingYear.setText(publishingYear);
         spBranch.setSelection(locIdxFromlmRecord2(branch)+1);
+        btnDelete.setEnabled(true);
+        btnUpdate.setEnabled(true);
 
 
     }

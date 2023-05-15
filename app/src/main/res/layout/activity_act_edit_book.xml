@@ -47,9 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Enter Title Here"
-                android:textColorHint="@color/light_grey"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHint="@color/light_grey" />
 
         </LinearLayout>
 
@@ -74,11 +73,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Enter ISBN Here"
-                android:textColorHint="@color/light_grey"
-                android:inputType="number"
                 android:enabled="false"
-                android:maxLength="13" />
+                android:inputType="number"
+                android:maxLength="13"
+                android:textColorHint="@color/light_grey" />
 
         </LinearLayout>
 
@@ -103,9 +101,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Enter Author Here"
-                android:textColorHint="@color/light_grey"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHint="@color/light_grey" />
 
         </LinearLayout>
 
@@ -130,9 +127,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Enter Publisher Here"
-                android:textColorHint="@color/light_grey"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColorHint="@color/light_grey" />
 
         </LinearLayout>
 
@@ -157,10 +153,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Enter Publishing Year Here"
-                android:textColorHint="@color/light_grey"
                 android:inputType="number"
-                android:maxLength="4" />
+                android:maxLength="4"
+                android:textColorHint="@color/light_grey" />
 
         </LinearLayout>
 
@@ -198,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:text="Update this book" />
 
             <Button
@@ -205,6 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:text="Delete This book Copy"
 
                 android:textColor="@color/red" />

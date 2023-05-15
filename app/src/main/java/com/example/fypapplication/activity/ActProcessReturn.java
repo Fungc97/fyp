@@ -119,32 +119,38 @@ public class ActProcessReturn extends AppCompatActivity {
         call.enqueue(new Callback<GetBookCopiesInfoTrans>() {//execute the call and get the response;network op. need to be run in background thread
             @Override
             public void onResponse(Call<GetBookCopiesInfoTrans> call, Response<GetBookCopiesInfoTrans> response) {
-                GetBookCopiesInfoTrans bookCopiesStatus = response.body();
+                GetBookCopiesInfoTrans getBookCopiesInfoTrans = response.body();
                 if (response.isSuccessful()) {
-                    switch (bookCopiesStatus.getStatus()) {
-                        case BOOKCOPIES_STATUS_ONRETREQ:
-                            showQuestionDialogYesNo(context, "Confirmation", "Do u want to PUT this book on shelf?\n" +
-                                            "Title: " + bookCopiesStatus.getTitle(),
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            processBookReturnReq(sBarcode);
-                                        }
-                                    },
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
-                                            etBarcode.setText("");
-                                        }
-                                    });
-                            break;
-
-                        default:
-                            showErrorMsgDialogOK(context,"The book is invalid for Return Processing.");
-                            break;
-
+                    if (!getBookCopiesInfoTrans.getTranState() .equals("SUCCESS") ) {
+                        showErrorMsgDialogOK(context, "Some error occurs in getBookCopiesStatus transaction.\n" + getBookCopiesInfoTrans.getTranState());
                     }
+                    else{
+                        switch (getBookCopiesInfoTrans.getStatus()) {
+                            case BOOKCOPIES_STATUS_ONRETREQ:
+                                showQuestionDialogYesNo(context, "Confirmation", "Do u want to PUT this book on shelf?\n" +
+                                                "Title: " + getBookCopiesInfoTrans.getTitle(),
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                processBookReturnReq(sBarcode);
+                                            }
+                                        },
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                etBarcode.setText("");
+                                            }
+                                        });
+                                break;
+
+                            default:
+                                showErrorMsgDialogOK(context,"The book is invalid for Return Processing.");
+                                break;
+
+                        }
+                    }
+
 
                 } else {
                     showErrorMsgDialogOK(context, "bookcopiesstatus: response not successful\n");
