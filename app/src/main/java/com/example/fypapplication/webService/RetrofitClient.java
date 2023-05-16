@@ -17,8 +17,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    private static Retrofit retrofit;
-    private static String BASE_URL="http://192.168.102.123:8090/api/"; //last char. must be backslash
+    private static Retrofit retrofit;//http://192.168.102.123:8090/api/
+    private static String BASE_URL="https://somefypapi.azurewebsites.net/api/"; //last char. must be backslash
 
     public static Retrofit getRetrofitInstance(){
         if(retrofit==null){
