@@ -65,7 +65,8 @@ public interface Methods {
     Call<AddBookCopiesTrans> createBookCopies(
             @Field("isbn")String isbn,
             @Field("libid")String libid,
-            @Field("barcode")String barcode
+            @Field("barcode")String barcode,
+            @Field("ac")String ac
     );
     @GET("bookcopies/{barcode}")
     Call<GetBookCopiesInfoTrans>getBookCopiesInfo(@Path("barcode")String barcode);
@@ -75,8 +76,8 @@ public interface Methods {
     @PUT("book")
     Call<UpdateBookTrans> updateBook(@FieldMap Map<String,String> fields);
 
-    @DELETE("bookcopies/{barcode}")
-    Call<DeleteBookCopiesTrans>delBookCopies(@Path("barcode")String barcode);
+    @DELETE("bookcopies/{barcode}/{ac}")
+    Call<DeleteBookCopiesTrans>delBookCopies(@Path("barcode")String barcode,@Path("ac")String ac);
 
 
 }

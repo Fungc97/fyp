@@ -153,7 +153,7 @@ public class ActAddBook extends AppCompatActivity {
     }
 
     private void addCopies(String isbn, String libid, String barcode) {
-        Call<AddBookCopiesTrans> call = methods.createBookCopies(isbn,libid,barcode);
+        Call<AddBookCopiesTrans> call = methods.createBookCopies(isbn,libid,barcode,sCurrentUserName);
         call.enqueue(new Callback<AddBookCopiesTrans>() {//execute the call and get the response;network op. need to be run in background thread
             @Override
             public void onResponse(Call<AddBookCopiesTrans> call, Response<AddBookCopiesTrans> response) {
