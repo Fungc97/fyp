@@ -367,7 +367,12 @@ public class ActAddBook extends AppCompatActivity {
                         showErrorMsgDialogOK(context, "Some error occurs in create book transaction.\n" + addBookTrans.getTranState());
                     }
                     else {
-                        showInfoMsgDialogOK(context, "Success.", (dialogInterface, i) -> dialogInterface.dismiss());
+                        showInfoMsgDialogOK(context, "Success.", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                getAllBook(); //update spinner
+                            }
+                        });
                     }
 
                 } else {
