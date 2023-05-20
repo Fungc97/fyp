@@ -17,9 +17,11 @@ public class UpdateBookTrans {
     private String publishingYear;
     @SerializedName("editStaffId")
     private String editStaffId;
-    @SerializedName("libId")
-    private String libId;
-
+    @SerializedName("location")
+    private String location;
+    public String getLocation() {
+        return location;
+    }
     public String getTranState() {
         return tranState;
     }
@@ -48,7 +50,5 @@ public class UpdateBookTrans {
         return editStaffId;
     }
 
-    public String getLibId() {
-        return libId;
-    }
+
 }

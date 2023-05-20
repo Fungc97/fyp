@@ -225,8 +225,9 @@ public class ActEditBook extends AppCompatActivity {
                         String author= updateBookTrans.getAuthor();
                         String publisher= updateBookTrans.getPublisher();
                         String publishingYear=updateBookTrans.getPublishingYear();
+                        String location=updateBookTrans.getLocation();
 
-                        showInfoMsgDialogOK(context, String.format("Success.\nBarcode:%s\nTitle:%s\nAuthor:%s\nPublisher:%s\nPublishingYear:%s",barcode,title,author,publisher,publishingYear), (dialogInterface, i) -> dialogInterface.dismiss());
+                        showInfoMsgDialogOK(context, String.format("Success.\nBarcode:%s\nTitle:%s\nAuthor:%s\nPublisher:%s\nPublishingYear:%s\nLocation:%s",barcode,title,author,publisher,publishingYear,location), (dialogInterface, i) -> dialogInterface.dismiss());
                     }
 
 
